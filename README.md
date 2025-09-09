@@ -18,14 +18,14 @@ Here is an overview [video](https://youtu.be/mnmJQIoaBwo) showcasing our project
 
 ![Importance of Sample Size Visualization](images/1.png)
 
-This simulation allows a user to enter a number of samples (below 1000) of three 6-sided dice and take the mean. Students will see that larger sample sizes more closely resemble the normal distribution
+This simulation allows a user to enter a number of samples (below 1000) of three 6-sided dice and take the mean. Students will see that larger sample sizes more closely resemble the normal distribution.
 
 2. Three Rules for the CLT
 
 | ![Small N Visualization](images/2-L.png) | ![Infinite Variance Visualization](images/2-R.png) |
 | :---: | :---: |
  
-This interaction allows the user to select any of the three required rules of the CLT, and see how violating that rule affects the distribution
+This interaction allows the user to select any of the three required rules of the CLT, and see how violating that rule affects the distribution.
 
 3. CLT Equation
 
