@@ -6,6 +6,12 @@ The files in the [public](/public) directory are deployed to: https://cse442.pag
 
 ## Motivation
 
+The Central Limit Theorem (CLT) is a fundamental result in statitics. It asserts that the distribution of sample means will converge to a normal distribution, so long as the sample size is sufficiently high. Despite its relevance in many science and mathematical fields, many students struggle to grasp the intuition and core concepts.
+
+For our CSE 442: Data Visualization Final Project, our group decided to create a series of visualizations on the Central Limit Theorem. Interactivity and simulation are effective educational tools, and our project aims to leverage them to teach these concepts to students. 
+
+Here is an overview [[Link](https://youtu.be/mnmJQIoaBwo) video] showcasing our project! Feel free to check it out yourself!
+
 ## Pictures
 
 ### Credit
