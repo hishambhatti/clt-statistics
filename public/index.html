@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Uncomment if you want your page to NOT be indexed by search engines: -->
+    <meta name="robots" content="none" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.11/katex.min.css"
+    />
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.11/katex.min.js"
+    ></script>
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.11/contrib/auto-render.min.js"
+      onload="renderMathInElement(document.body);"
+    ></script>
+
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css" />
+    <title>CLT Explained</title>
+    <!-- Uncomment if using d3: -->
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+
+    <!-- Uncomment if using Vega-Lite -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script> -->
+  </head>
+
+  <!------------------------------------------------------------>
+  <!-- You are free to modify this template however you want! -->
+  <!------------------------------------------------------------>
+
+  <body>
+    <header class="head-footer">
+      <h1>
+        <a class="light-purple"
+          >The Great Normalizer: How the Central Limit Theorem Shapes
+          Statistics</a
+        >
+        <!--The Magic of Averages: How the Central Limit Theorem Shapes Statistics-->
+        <!---->
+      </h1>
+
+      <p class="light-purple">
+        <strong>Denny Zhou, Hisham Bhatti, Jason Hua, Denny Wu</strong>
+      </p>
+    </header>
+
+    <p class="text-description" style="margin-top: 40px">
+      Imagine you have an unfairly weighted dice and you want to know the
+      average roll. If you roll it a few times, you might get a variety of
+      outcomes. However, if you keep taking more and more samples of rolls while
+      averaging, you will notice that most of the sample averages will be pretty
+      close to the true average outcome of the dice. This phenomenon is known as
+      the <strong>Central Limit Theorem</strong>.
+    </p>
+    <p class="text-description">
+      First, let's explore the importance of taking a large number of samples to
+      understand a distribution. Consider three independent and fair 6-sided
+      dice. Let X be the random variable representing the sum of the outcomes of
+      these three dice. Below we show the true probability distribution of X, as
+      well as our simulation of 1000 of these dice rolls.
+    </p>
+
+    <!-- Visualization  1 / 2-->
+    <div class="picture-align">
+      <span id="observablehq-chart3-56f76ebe"></span>
+
+      <span id="observablehq-chart-56f76ebe"></span>
+    </div>
+
+    <script type="module" src="observableChart1.js"></script>
+    <script type="module" src="observableChart2.js"></script>
+
+    <p class="text-description">
+      <b>
+        Pretty similar eh? To show what changes when the number of samples is
+        too small, feel free to explore with a smaller number of samples.
+      </b>
+    </p>
+
+    <!-- Visualization  3 -->
+    <div class="container">
+      <div id="observablehq-chart2-56f76ebe"></div>
+    </div>
+    <div class="button-container">
+      <span id="observablehq-viewof-sample-56f76ebe"></span>
+      <span id="observablehq-viewof-input-56f76ebe"></span>
+    </div>
+    <script type="module">
+      import {
+        Runtime,
+        Inspector,
+      } from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+      import define from "https://api.observablehq.com/d/1e8ca7864077a6c7.js?v=4";
+      new Runtime().module(define, (name) => {
+        if (name === "viewof input")
+          return new Inspector(
+            document.querySelector("#observablehq-viewof-input-56f76ebe")
+          );
+        if (name === "viewof sample")
+          return new Inspector(
+            document.querySelector("#observablehq-viewof-sample-56f76ebe")
+          );
+        if (name === "chart2")
+          return new Inspector(
+            document.querySelector("#observablehq-chart2-56f76ebe")
+          );
+        return [
+          "partialNumbers",
+          "frequencyMap2",
+          "data2",
+          "sortedData2",
+        ].includes(name);
+      });
+    </script>
+
+    <p class="text-description">
+      <b>
+        You should see that smaller numbers of dice rolls do not closely match
+        the true distribution, and that they match more closely as the number of
+        dice rolls increases.
+      </b>
+    </p>
+
+    <h2 class="subheaders">The Central Limit Theorem: What is it?</h2>
+    <p class="text-description">
+      The Central Limit Theorem states that the sampling distribution of the
+      mean will always be normally distributed, as long as the sample size is
+      large enough. In other words, the sample mean converges to a standard
+      normal distribution. Visually, this normal distribution is shaped like a
+      bell curve. For this statement to be true, we require three conditions to
+      be satisfied.
+    </p>
+
+    <h2 class="subheaders">Three Rules for the Central Limit Theorem</h2>
+    <section class="important-box">
+      <ul>
+        <li>
+          <strong>Independence:</strong> The observations must be independent
+          from each other and drawn from the same distribution. This typically
+          means that the sampling should be random. There should also be no
+          direct or indirect relationship between the data points. The result or
+          value of one data point should not impact another.
+        </li>
+        <li>
+          <strong>Sample Size:</strong> The sample size needs to be sufficiently
+          large. While there is no strict number, the general rule is that 30 or
+          more samples will be large enough for the Central Limit Theorem to
+          hold. As the number of sample sizes get larger, the distribution will
+          more closely resemble a normal distribution.
+        </li>
+        <li>
+          <strong>Variance</strong>: The population that the samples are drawn
+          from must have a finite variance. Variance is the measure of how much
+          the values of a random variable deviate from its mean. This means that
+          the data should not have any extreme outliers or an infinite variance.
+        </li>
+      </ul>
+    </section>
+    <!-- Visualization -->
+
+    <p class="text-description">
+      What happens when each of these conditions are not satisfied? To see this
+      try <strong>clicking</strong> each of the buttons below to turn off one
+      rule, and see what our sampling distribution looks like.
+    </p>
+
+    <div class="btn-group">
+      <button onclick="displayContent('Normal')">Normal</button>
+      <button onclick="displayContent('No i.i.d')">No i.i.d</button>
+      <button onclick="displayContent('Small Sample Size')">Small N</button>
+      <button onclick="displayContent('Variance')">Variance</button>
+    </div>
+
+    <div class="display-area" id="displayArea">
+      <!-- Images and text will be displayed here -->
+    </div>
+    <script src="clt-choices.js"></script>
+
+    <p class="text-description">
+      Yikes! Clearly for the CLT to be valid, we must have independence and
+      identically distributed, a sufficiently large sample size, and a finite
+      variance.
+    </p>
+
+    <h2 class="subheaders">Central Limit Theorem Equation</h2>
+
+    <p class="text-description">
+      In words, the Central Limit Theorem tells us that for a sufficiently high
+      sample size, the sampling distribution of means converges to a normal
+      distribution. Here is that written as a formula.
+      <strong>Hover</strong> over each of these symbols to learn what they mean.
+    </p>
+    <h2>
+      <math class="math-symbol">
+        <mrow>
+          <mi id="normaldist" class="formula">N(0,1)</mi>
+          <mo>∼</mo>
+          <mfrac>
+            <mrow>
+              <mover>
+                <mi id="Xbar" class="formula">x̄</mi>
+              </mover>
+              <mo>−</mo>
+              <mi id="mu" class="formula">μ</mi>
+            </mrow>
+            <mrow>
+              <mfrac>
+                <mi id="sigma" class="formula">σ</mi>
+                <msqrt>
+                  <mi id="n" class="formula">n</mi>
+                </msqrt>
+              </mfrac>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </math>
+    </h2>
+
+    <script>
+      tippy("#normaldist", {
+        content:
+          "Standard Normal Distribution: A normal distribution with a mean of zero and a standard deviation of 1.",
+        animation: "fade",
+      });
+      tippy("#Xbar", {
+        content:
+          "Sample Mean: The average of the sample data points. x̄ will vary from one sample to another, but the distribution of x̄ tends to be normal if the sample size is sufficiently large.",
+        animation: "fade",
+      });
+      tippy("#mu", {
+        content:
+          "Population Mean: The true mean of the population from which the samples are drawn. We subtract μ from the sample mean to center the distribution around zero.",
+        animation: "fade",
+      });
+      tippy("#sigma", {
+        content:
+          "Population Standard Deviation: The standard deviation of the entire population. A larger σ indicates that the data points in the population are more spread out, while a smaller one indicates they are closer to the mean. It is divided by the square root of the sample size \(n\), to form the standard error.",
+        animation: "fade",
+      });
+      tippy("#n", {
+        content:
+          "Sample Size: The number of indepdendent observations in each sample. As the sample size gets larger, the sampling distribution of the sample mean approaches a normal distribution.",
+        animation: "fade",
+      });
+    </script>
+
+    <p class="text-description">
+      At this point, we know what the CLT is and when it works. Now, let's
+      explore it on a distribution of your choice!
+    </p>
+
+    <!-- Visualization -->
+
+    <h2 class="subheaders">An Application of Central Limit Theorem</h2>
+    <script src="main.js"></script>
+    <p class="text-description">
+      Consider a 6-sided dice. Feel free to modify the weights of each outcome,
+      and see how that changes the population distribution below.
+    </p>
+    <p class="text-description">
+      Then <strong>select</strong> your sample size and the number of samples.
+      Recall that for the Central Limit Theorem to work properly, both of these
+      values should be high, but feel free to explore others. Hit
+      <strong>"Play"</strong> when you're done and see the CLT plotted in
+      action.
+    </p>
+    <div style="display: flex; flex-direction: row; align-items: center">
+      <div style="display: flex; gap: 20px">
+        <div id="observablehq-res-ecc60331" style="width: 1000px"></div>
+        <div style="display: flex; flex-direction: column; gap: 10px">
+          <div id="observablehq-viewof-p1-ecc60331"></div>
+          <div id="observablehq-viewof-p2-ecc60331"></div>
+          <div id="observablehq-viewof-p3-ecc60331"></div>
+          <div id="observablehq-viewof-p4-ecc60331"></div>
+          <div id="observablehq-viewof-p5-ecc60331"></div>
+          <div id="observablehq-viewof-p6-ecc60331"></div>
+          <div
+            id="observablehq-chart-ecc60331"
+            style="width: 500px; margin-top: 20px"
+          ></div>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: rows; align-items: start">
+      <div id="controls-container">
+        <div id="observablehq-viewof-sampleSize-ecc60331"></div>
+        <div id="observablehq-viewof-numSamples-ecc60331"></div>
+        <div id="observablehq-viewof-play-ecc60331"></div>
+        <div id="observablehq-viewof-reset-ecc60331"></div>
+      </div>
+    </div>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css"
+    />
+    <script type="module" src="application.js"></script>
+
+    <p class="text-description">
+      And that's it! The CLT is a foundational result in statistics, and is used
+      all over the place. It can be a little intimidating to wrap your brain
+      around, but hopefully with these explorations we've began to understand it
+      a little better.
+    </p>
+
+    <footer class="head-footer">
+      <p>
+        <a href="https://gitlab.cs.washington.edu/cse442/25wi/fp/clt-statistics"
+          >Repository</a
+        >
+        <br />
+        <a href="https://courses.cs.washington.edu/courses/cse442/25wi/"
+          >CSE 442 Data Visualization</a
+        >
+        <br />
+        <a href="https://www.washington.edu">University of Washington</a>
+      </p>
+    </footer>
+  </body>
+</html>
