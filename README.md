@@ -10,7 +10,7 @@ The Central Limit Theorem (CLT) is a fundamental result in statitics. It asserts
 
 For our CSE 442: Data Visualization Final Project, our group decided to create a series of visualizations on the Central Limit Theorem. Interactivity and simulation are effective educational tools, and our project aims to leverage them to teach these concepts to students. 
 
-Here is an overview [[Link](https://youtu.be/mnmJQIoaBwo) video] showcasing our project! Feel free to check it out yourself!
+Here is an overview [[video](https://youtu.be/mnmJQIoaBwo)] showcasing our project! Feel free to check it out yourself!
 
 ## Pictures
 
