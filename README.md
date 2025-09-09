@@ -5,3 +5,10 @@ This project uses the Javascript D3 library to create a dynamic, interactive vis
 The files in the [public](/public) directory are deployed to: https://cse442.pages.cs.washington.edu/25wi/fp/clt-statistics
 
 ## Motivation
+
+## Pictures
+
+### Credit
+
+**Creators**: Denny Zhou, Hisham Bhatti, Jason Hua, Denny Wu
+With special thanks to Prof. Leilani Battle and the entire CSE 442 Winter 2025 Staff!
