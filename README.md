@@ -12,7 +12,23 @@ For our CSE 442: Data Visualization Final Project, our group decided to create a
 
 Here is an overview [video](https://youtu.be/mnmJQIoaBwo) showcasing our project! Feel free to check it out yourself!
 
-## Pictures
+## Visualizations
+
+* 1. Importance of Sample Size
+
+This simulation allows a user to enter a number of samples (below 1000) of three 6-sided dice and take the mean. Students will see that larger sample sizes more closely resemble the normal distribution
+
+* 2. Three Rules for the CLT
+ 
+This interaction allows the user to select any of the three required rules of the CLT, and see how violating that rule affects the distribution
+
+* 3. CLT Equation
+ 
+Users can hover over each variable in the CLT equation to pop-up a detailed explanation of what they mean.
+
+* 4. CLT Simulation
+ 
+The final visualization allows the user to create a probability distribution of their choosing for a 6-sided dice. They can then set the sample size (N) and number of samples. After clicking play, the computer randomly samples from the selected distribution, computes their means, and then plots them. Users should experiment and discover that as long as N is large, the plotted distribution looks approximately normal, regardless of the underlying distribution.
 
 ### Credit
 
