@@ -39,6 +39,10 @@ Users can hover over each variable in the CLT equation to pop-up a detailed expl
  
 The final visualization allows the user to create a probability distribution of their choosing for a 6-sided dice. They can then set the sample size (N) and number of samples. After clicking play, the computer randomly samples from the selected distribution, computes their means, and then plots them. Users should experiment and discover that as long as N is large, the plotted distribution looks approximately normal, regardless of the underlying distribution.
 
+### Tools
+
+HTML, CSS, Javascript (D3)
+
 ### Credit
 
 **Creators**: Denny Zhou, Hisham Bhatti, Jason Hua, Denny Wu
